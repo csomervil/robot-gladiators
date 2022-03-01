@@ -7,8 +7,8 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 enemyHealth = Math.floor(Math.random() * 21) + 40;
 var enemyAttack = 12;
 
-var randomNumber = function() {
-    var value = Math.floor(Math.random() * (21)) + 40;
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
   
     return value;
   };
