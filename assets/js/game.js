@@ -5,12 +5,19 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 // Enemy stats
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
-    window.alert(playerName + ", Welcome to Robot Gladiators!");
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
+window.alert(playerName + ", Welcome to Robot Gladiators!");
+
+var fight = function(enemyName) {
 
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
@@ -53,14 +60,12 @@ var fight = function() {
 } else if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-  
     // if yes (true), leave fight
     if (confirmSkip) {
       window.alert(playerName + " has decided to skip this fight. Goodbye!");
       // subtract money from playerMoney for skipping
       playerMoney = playerMoney - 2;
     }
-    
     // if no (false), ask question again by running fight() again
     else {
       fight();
@@ -68,4 +73,6 @@ var fight = function() {
   }
 };
 
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
